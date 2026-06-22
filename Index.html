@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Meu Amor ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffb3c6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Corações flutuantes ao fundo */
+        .background-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .heart-bg {
+            position: absolute;
+            bottom: -50px;
+            font-size: 24px;
+            color: rgba(255, 75, 110, 0.3);
+            animation: float Up 8s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Cartão Principal */
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(255, 75, 110, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            z-index: 2;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .main-heart {
+            font-size: 60px;
+            color: #ff4b6e;
+            animation: pulse 1.5s ease-in-out infinite;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #ff2a55;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .signature {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #ff4b6e;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-hearts" id="heartsContainer"></div>
+
+    <div class="card">
+        <div class="main-heart">❤️</div>
+        <h1>Para alguém muito especial...</h1>
+        
+        <p>
+            Sei que o dia a dia corre rápido e, às vezes, a rotina tenta nos fazer esquecer o quanto somos sortudos. Por isso, criei este espacinho na internet só para te lembrar do óbvio: você é a melhor parte dos meus dias.
+        </p>
+        <p>
+            Obrigado por cada sorriso, por cada abraço que cura qualquer cansaço e por ser minha parceira nessa jornada. Meu mundo é muito mais bonito, colorido e feliz desde que você decidiu fazer parte dele. 
+        </p>
+        <p>
+            Eu te amo mais do que as palavras (ou linhas de código) podem expressar!
+        </p>
+
+        <div class="signature">Com todo o meu amor, <br> [Seu Nome]</div>
+    </div>
+
+    <script>
+        // Cria corações flutuantes automaticamente
+        const container = document.getElementById('heartsContainer');
+        const heartsSymbols = ['❤️', '💖', '💝', '💕'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-bg');
+            
+            // Posição e estilos aleatórios
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 5 + 5) + 's'; // entre 5s e 10s
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.innerText = heartsSymbols[Math.floor(Math.random() * heartsSymbols.length)];
+            
+            container.appendChild(heart);
+
+            // Remove o coração após a animação acabar
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        // Gera corações a cada 400ms
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>
